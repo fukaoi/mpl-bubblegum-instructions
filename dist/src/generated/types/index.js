@@ -22,6 +22,7 @@ __exportStar(require("./LeafSchema"), exports);
 __exportStar(require("./MetadataArgs"), exports);
 __exportStar(require("./TokenProgramVersion"), exports);
 __exportStar(require("./TokenStandard"), exports);
+__exportStar(require("./UpdateArgs"), exports);
 __exportStar(require("./UseMethod"), exports);
 __exportStar(require("./Uses"), exports);
 __exportStar(require("./Version"), exports);

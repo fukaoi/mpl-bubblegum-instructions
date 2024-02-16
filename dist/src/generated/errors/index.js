@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.errorFromName = exports.errorFromCode = exports.DecompressionDisabledError = exports.UnknownExternalErrorError = exports.CollectionMustBeAUniqueMasterEditionError = exports.CollectionMasterEditionAccountInvalidError = exports.InvalidDelegateRecordError = exports.InvalidCollectionAuthorityError = exports.MetadataMintMismatchError = exports.CollectionMustBeSizedError = exports.LeafAuthorityMustSignError = exports.UpdateAuthorityIncorrectError = exports.AlreadyUnverifiedError = exports.AlreadyVerifiedError = exports.CollectionNotFoundError = exports.CollectionCannotBeVerifiedInThisInstructionError = exports.IncorrectOwnerError = exports.NumericalOverflowErrorError = exports.InsufficientMintCapacityError = exports.TreeAuthorityIncorrectError = exports.MetadataBasisPointsTooHighError = exports.MetadataUriTooLongError = exports.MetadataSymbolTooLongError = exports.MetadataNameTooLongError = exports.CreatorsTooLongError = exports.DataHashMismatchError = exports.CreatorHashMismatchError = exports.NoCreatorsPresentError = exports.CreatorNotFoundError = exports.CreatorDidNotVerifyError = exports.DuplicateCreatorAddressError = exports.CreatorShareTotalMustBe100Error = exports.UnsupportedSchemaVersionError = exports.HashingMismatchError = exports.PublicKeyMismatchError = exports.AssetOwnerMismatchError = void 0;
+exports.errorFromName = exports.errorFromCode = exports.CreatorDidNotUnverifyError = exports.PrimarySaleCanOnlyBeFlippedToTrueError = exports.MetadataImmutableError = exports.CollectionMismatchError = exports.MissingCollectionMetadataAccountError = exports.MissingCollectionMintAccountError = exports.DecompressionDisabledError = exports.UnknownExternalErrorError = exports.CollectionMustBeAUniqueMasterEditionError = exports.CollectionMasterEditionAccountInvalidError = exports.InvalidDelegateRecordError = exports.InvalidCollectionAuthorityError = exports.MetadataMintMismatchError = exports.CollectionMustBeSizedError = exports.LeafAuthorityMustSignError = exports.UpdateAuthorityIncorrectError = exports.AlreadyUnverifiedError = exports.AlreadyVerifiedError = exports.CollectionNotFoundError = exports.CollectionCannotBeVerifiedInThisInstructionError = exports.IncorrectOwnerError = exports.NumericalOverflowErrorError = exports.InsufficientMintCapacityError = exports.TreeAuthorityIncorrectError = exports.MetadataBasisPointsTooHighError = exports.MetadataUriTooLongError = exports.MetadataSymbolTooLongError = exports.MetadataNameTooLongError = exports.CreatorsTooLongError = exports.DataHashMismatchError = exports.CreatorHashMismatchError = exports.NoCreatorsPresentError = exports.CreatorNotFoundError = exports.CreatorDidNotVerifyError = exports.DuplicateCreatorAddressError = exports.CreatorShareTotalMustBe100Error = exports.UnsupportedSchemaVersionError = exports.HashingMismatchError = exports.PublicKeyMismatchError = exports.AssetOwnerMismatchError = void 0;
 const createErrorFromCodeLookup = new Map();
 const createErrorFromNameLookup = new Map();
 class AssetOwnerMismatchError extends Error {
@@ -445,6 +445,84 @@ class DecompressionDisabledError extends Error {
 exports.DecompressionDisabledError = DecompressionDisabledError;
 createErrorFromCodeLookup.set(0x1791, () => new DecompressionDisabledError());
 createErrorFromNameLookup.set('DecompressionDisabled', () => new DecompressionDisabledError());
+class MissingCollectionMintAccountError extends Error {
+    constructor() {
+        super('Missing collection mint account');
+        this.code = 0x1792;
+        this.name = 'MissingCollectionMintAccount';
+        if (typeof Error.captureStackTrace === 'function') {
+            Error.captureStackTrace(this, MissingCollectionMintAccountError);
+        }
+    }
+}
+exports.MissingCollectionMintAccountError = MissingCollectionMintAccountError;
+createErrorFromCodeLookup.set(0x1792, () => new MissingCollectionMintAccountError());
+createErrorFromNameLookup.set('MissingCollectionMintAccount', () => new MissingCollectionMintAccountError());
+class MissingCollectionMetadataAccountError extends Error {
+    constructor() {
+        super('Missing collection metadata account');
+        this.code = 0x1793;
+        this.name = 'MissingCollectionMetadataAccount';
+        if (typeof Error.captureStackTrace === 'function') {
+            Error.captureStackTrace(this, MissingCollectionMetadataAccountError);
+        }
+    }
+}
+exports.MissingCollectionMetadataAccountError = MissingCollectionMetadataAccountError;
+createErrorFromCodeLookup.set(0x1793, () => new MissingCollectionMetadataAccountError());
+createErrorFromNameLookup.set('MissingCollectionMetadataAccount', () => new MissingCollectionMetadataAccountError());
+class CollectionMismatchError extends Error {
+    constructor() {
+        super('Collection mismatch');
+        this.code = 0x1794;
+        this.name = 'CollectionMismatch';
+        if (typeof Error.captureStackTrace === 'function') {
+            Error.captureStackTrace(this, CollectionMismatchError);
+        }
+    }
+}
+exports.CollectionMismatchError = CollectionMismatchError;
+createErrorFromCodeLookup.set(0x1794, () => new CollectionMismatchError());
+createErrorFromNameLookup.set('CollectionMismatch', () => new CollectionMismatchError());
+class MetadataImmutableError extends Error {
+    constructor() {
+        super('Metadata not mutable');
+        this.code = 0x1795;
+        this.name = 'MetadataImmutable';
+        if (typeof Error.captureStackTrace === 'function') {
+            Error.captureStackTrace(this, MetadataImmutableError);
+        }
+    }
+}
+exports.MetadataImmutableError = MetadataImmutableError;
+createErrorFromCodeLookup.set(0x1795, () => new MetadataImmutableError());
+createErrorFromNameLookup.set('MetadataImmutable', () => new MetadataImmutableError());
+class PrimarySaleCanOnlyBeFlippedToTrueError extends Error {
+    constructor() {
+        super('Can only update primary sale to true');
+        this.code = 0x1796;
+        this.name = 'PrimarySaleCanOnlyBeFlippedToTrue';
+        if (typeof Error.captureStackTrace === 'function') {
+            Error.captureStackTrace(this, PrimarySaleCanOnlyBeFlippedToTrueError);
+        }
+    }
+}
+exports.PrimarySaleCanOnlyBeFlippedToTrueError = PrimarySaleCanOnlyBeFlippedToTrueError;
+createErrorFromCodeLookup.set(0x1796, () => new PrimarySaleCanOnlyBeFlippedToTrueError());
+createErrorFromNameLookup.set('PrimarySaleCanOnlyBeFlippedToTrue', () => new PrimarySaleCanOnlyBeFlippedToTrueError());
+class CreatorDidNotUnverifyError extends Error {
+    constructor() {
+        super('Creator did not unverify the metadata');
+        this.code = 0x1797;
+        this.name = 'CreatorDidNotUnverify';
+        if (typeof Error.captureStackTrace === 'function') {
+            Error.captureStackTrace(this, CreatorDidNotUnverifyError);
+        }
+    }
+}
+exports.CreatorDidNotUnverifyError = CreatorDidNotUnverifyError;
+createErrorFromCodeLookup.set(0x1797, () => new CreatorDidNotUnverifyError());
+createErrorFromNameLookup.set('CreatorDidNotUnverify', () => new CreatorDidNotUnverifyError());
 function errorFromCode(code) {
     const createError = createErrorFromCodeLookup.get(code);
     return createError != null ? createError() : null;

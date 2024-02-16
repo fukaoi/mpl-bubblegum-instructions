@@ -172,6 +172,36 @@ export declare class DecompressionDisabledError extends Error {
     readonly name: string;
     constructor();
 }
+export declare class MissingCollectionMintAccountError extends Error {
+    readonly code: number;
+    readonly name: string;
+    constructor();
+}
+export declare class MissingCollectionMetadataAccountError extends Error {
+    readonly code: number;
+    readonly name: string;
+    constructor();
+}
+export declare class CollectionMismatchError extends Error {
+    readonly code: number;
+    readonly name: string;
+    constructor();
+}
+export declare class MetadataImmutableError extends Error {
+    readonly code: number;
+    readonly name: string;
+    constructor();
+}
+export declare class PrimarySaleCanOnlyBeFlippedToTrueError extends Error {
+    readonly code: number;
+    readonly name: string;
+    constructor();
+}
+export declare class CreatorDidNotUnverifyError extends Error {
+    readonly code: number;
+    readonly name: string;
+    constructor();
+}
 export declare function errorFromCode(code: number): MaybeErrorWithCode;
 export declare function errorFromName(name: string): MaybeErrorWithCode;
 export {};

@@ -29,6 +29,7 @@ __exportStar(require("./setTreeDelegate"), exports);
 __exportStar(require("./transfer"), exports);
 __exportStar(require("./unverifyCollection"), exports);
 __exportStar(require("./unverifyCreator"), exports);
+__exportStar(require("./updateMetadata"), exports);
 __exportStar(require("./verifyCollection"), exports);
 __exportStar(require("./verifyCreator"), exports);
 //# sourceMappingURL=index.js.map
